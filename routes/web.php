@@ -10,11 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+// use Illuminate\Support\Facades\Mail;
+// use App\Mail\WelcomeMail;
+// Route::get('/', function () {
+//     Mail::to('email@gmail.com')->send(new WelcomeMail());
+//     return new WelcomeMail();
+// });
+Route::get('/',function(){
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('home','EventController@index');
+// Route::post('home/store','EventController@store')->name('store');
+ 
