@@ -17,8 +17,8 @@
 //     return new WelcomeMail();
 // });
 Route::get('/',function(){
-    return view('welcome');
+    return view('home');
 });
-// Route::get('home','EventController@index');
+ //Route::get('home','EventController@index');
 // Route::post('home/store','EventController@store')->name('store');
  
