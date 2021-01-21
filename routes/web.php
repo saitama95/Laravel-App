@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +18,10 @@
 //     Mail::to('email@gmail.com')->send(new WelcomeMail());
 //     return new WelcomeMail();
 // });
-Route::get('/',function(){
-    return view('home');
-});
+
  //Route::get('home','EventController@index');
 // Route::post('home/store','EventController@store')->name('store');
  
+
+Route::view('/','home');
+Route::view('/{any}', 'home');

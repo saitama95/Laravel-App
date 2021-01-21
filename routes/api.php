@@ -21,7 +21,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 
-], function ($router) {
+], function () {
 
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
@@ -37,3 +37,5 @@ Route::apiresource('question/{question}/reply', 'ReplyController');
 
 Route::post('like/{reply}','LikeController@likeIt');
 Route::delete('unlike/{reply}','LikeController@deleteLike');
+
+

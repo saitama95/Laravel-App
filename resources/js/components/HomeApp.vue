@@ -1,6 +1,7 @@
 <template>
     <div>
        <tool-bar></tool-bar>
+        <router-view></router-view>
        <footer-app></footer-app>
     </div>
 </template>
@@ -11,7 +12,8 @@ export default {
     name:'HomeApp',
     components:{
         'tool-bar':toolbar,
-        'footer-app':footer
+        'footer-app':footer,
+       
     }
 }
 </script>
