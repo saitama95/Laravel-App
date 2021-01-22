@@ -22,8 +22,8 @@
 
   </v-form>
 </template>
+
 <script>
-//import axios from 'axios'
 export default {
     name:'Login',
     data(){
@@ -36,12 +36,7 @@ export default {
     },
     methods:{
         login(){
-          axios.post('/api/auth/login',this.forms)
-            .then(response=>{
-              console.log(response.data);
-          }).catch(error=>{
-            console.log(error.data)
-          })
+          User.login(this.forms);
         }
     }
 }

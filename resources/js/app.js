@@ -30,7 +30,9 @@ import HomeApp from './components/HomeApp';
 import router from './router/router';
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-
+import User from './helpers/User'
+window.User=User
+console.log(User.id())
 Vue.use(Vuetify)
 
 const vuetify= new Vuetify({})
