@@ -1,4 +1,5 @@
 <template>
+<div class="box">
   <v-form @submit.prevent="login"
   >
     <v-text-field
@@ -17,10 +18,16 @@
         type="submit"
       color="success"
     >
-     Submit
+     Login
     </v-btn>
 
+      <router-link to="/signup">
+        <v-btn flat>Signup</v-btn>
+      </router-link>
+
   </v-form>
+</div>
+  
 </template>
 
 <script>
@@ -36,8 +43,20 @@ export default {
     },
     methods:{
         login(){
-          User.login(this.forms);
+          User.login(this.forms)
+          this.$router.push({name:'formu'}) 
         }
-    }
+    },
+    created(){
+      if(User.loggedIn()){
+        this.$router.push({name:'formu'}) 
+      }
+    } 
 }
 </script>
+<style scoped>
+  .box{
+    margin:auto;
+    width:500px;
+}
+</style>

@@ -32,9 +32,10 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import User from './helpers/User'
 window.User=User
-console.log(User.id())
+console.log(User.loggedIn())
 Vue.use(Vuetify)
-
+window.EventBus=new Vue();
+ 
 const vuetify= new Vuetify({})
 
 const app = new Vue({
