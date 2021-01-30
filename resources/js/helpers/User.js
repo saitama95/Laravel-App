@@ -13,9 +13,10 @@ class User{
     responseAfterLogin(response){
         const access_token=response.data.access_token
         const username=response.data.username
+        const user_id=response.data.id
         if(Token.isValid(access_token)){
            // console.log(access_token)
-            AppStorage.store(access_token,username)
+            AppStorage.store(access_token,username,user_id)
             window.location='/formu'
         }
     }
@@ -33,7 +34,7 @@ class User{
     }
     logout(){
          AppStorage.clear()
-        window.location='/login'
+         window.location='/login'
     }
     name(){
         return AppStorage.getUser()
@@ -43,6 +44,9 @@ class User{
             const payload=Token.payload(AppStorage.getToken())
             return payload.sub
         }
+    }
+    own(id){
+        return this.id()===id
     }
 }
 export default User=new User();

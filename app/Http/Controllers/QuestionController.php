@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Database\Query\Builder;
+use App\User;
 use App\Question;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Query\Builder;
 use App\Http\Resources\QuestionResource;
+use Illuminate\Support\Facades\Response;
+
 class QuestionController extends Controller
 {
     public function __construct()
@@ -24,9 +28,14 @@ class QuestionController extends Controller
             return response('deleted');
     }
     public function store(Request $request){
-       // auth()->user()->question()->create($request->all());
-        Question::create($request->all());
-        return response('success');
+        $quest=new Question();
+        $quest->title=$request->title;
+        $quest->body=$request->body;
+        $quest->category_id=$request->category_id;
+        $quest->user_id=auth()->user()->id;
+        $quest->save();
+        return response(new QuestionResource($quest),200);
+        
     }
     public function update(Request $request,Question $question){
         $question->update($request->all());

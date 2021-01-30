@@ -28,11 +28,17 @@ window.Vue = require('vue');
  */
 import HomeApp from './components/HomeApp';
 import router from './router/router';
-import Vue from 'vue'
 import Vuetify from 'vuetify'
 import User from './helpers/User'
+import AppStorage from './helpers/AppStorage'
+import Vue from 'vue'
+import md from 'marked'
+import VueSimplemde from 'vue-simplemde'
+Vue.use(VueSimplemde)
+
+window.AppStorage=AppStorage
 window.User=User
-console.log(User.loggedIn())
+window.md=md
 Vue.use(Vuetify)
 window.EventBus=new Vue();
  
