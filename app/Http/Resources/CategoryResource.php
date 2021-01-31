@@ -19,6 +19,7 @@ class CategoryResource extends JsonResource
            'name'=>$this->name,
            'created_at'=>$this->created_at->diffForHumans(),
            'path'=>$this->path,
+           'slug'=>$this->slug
        ];
     }
 }

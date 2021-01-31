@@ -9,12 +9,14 @@ import Formu from '../components/formu/Formu'
 import Read from '../components/formu/Read'
 import Create from '../components/formu/Create'
 import Logout from '../components/Login/Logout'
+import CreateCategory from '../components/Category/createCategory'
 const routes = [
     { path: '/login', component: Login ,name:'login' },
     { path: '/signup', component: Signup },
     { path: '/logout', component: Logout },
     { path: '/formu', component: Formu,name:'formu' },
     { path: '/ask', component: Create},
+    { path: '/category', component: CreateCategory},
     { path: '/question/:slug', component: Read,name:'read'},
 
 ]

@@ -7,11 +7,16 @@
                 :data=question
                 ></question>
             </v-flex>
-            Sidebar
+           <v-flex xs4>
+               <appsidebar>
+                   
+               </appsidebar>
+           </v-flex>
         </v-layout>
     </v-container>
 </template>
 <script>
+import appsidebar from './AppSidebar'
 import question from './Question'
 export default {
     name:'Formu',
@@ -21,7 +26,8 @@ export default {
         }
     },
     components:{
-        question
+        question,
+        appsidebar
     },
     created(){
         axios.get('api/question')

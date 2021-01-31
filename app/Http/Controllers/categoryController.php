@@ -13,8 +13,12 @@ class categoryController extends Controller
         $this->middleware('jwt', ['except' => ['index','show']]);
     }
     public function store(Request $request){
-        Category::collection(create($request->all()));
-        return response('success',201);
+        $category=new Category;
+        $category->name=$request->name;
+        $category->slug=Str::slug($request->name);
+        $category->save();
+        //return response('sucess');
+        return response(new CategoryResource($category));
     }
     public function index(){
        return  CategoryResource::collection(Category::all());
@@ -24,7 +28,7 @@ class categoryController extends Controller
             'name'=>$request->name,
             'slug'=>Str::slug($request->name)
         ]);
-        return response('update',201);
+        return response(new CategoryResource($category));
     }
     public function show(Category $category){
         return new CategoryResource($category);
