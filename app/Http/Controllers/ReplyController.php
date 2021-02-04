@@ -19,8 +19,7 @@ class ReplyController extends Controller
     }
     public function index(Question $question)
     {
-        return ReplyResource::collection($question->replies);
-        //return Reply::all();
+        return ReplyResource::collection($question->replies);  
     }
 
     /**
@@ -31,6 +30,7 @@ class ReplyController extends Controller
      */
     public function store(Question $question,Request $request)
     {
+        ///question id come form $question automatically inject
        $reply=$question->replies()->create($request->all());
        return response(['reply'=>new ReplyResource($reply)]);
     }

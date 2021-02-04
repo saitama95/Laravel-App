@@ -10,7 +10,7 @@
             </div>
             <v-spacer></v-spacer>
            
-            <v-btn color="teal">Replies</v-btn>
+            <v-btn color="teal" dark>{{datas.replies.length}} Replies</v-btn>
         </v-card-title>
         <v-card-text v-html="body"></v-card-text>
         
@@ -38,7 +38,6 @@ export default {
     },
     computed:{
         body(){
-            console.log(this.show)
             return md.parse(this.datas.body)
         },
         show(){

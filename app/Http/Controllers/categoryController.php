@@ -17,7 +17,6 @@ class categoryController extends Controller
         $category->name=$request->name;
         $category->slug=Str::slug($request->name);
         $category->save();
-        //return response('sucess');
         return response(new CategoryResource($category));
     }
     public function index(){

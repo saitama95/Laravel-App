@@ -13,16 +13,14 @@
                  <v-btn
                     type="submit"
                     color="success"
-                    >
-                    Update
+                    >Update
                 </v-btn>
 
-                    <v-btn
+                <v-btn
                     @click="cancel()"
                     type="submit"
                     color="red"
-                    >
-                    Cancel
+                    >Cancel
                 </v-btn>
 
             </v-form>
@@ -41,7 +39,7 @@ export default {
             forms:{
                 title:null,
                 body:null
-            }
+            },
         }
     },
     mounted(){
@@ -51,15 +49,15 @@ export default {
         updateQuestion(){
             axios.put(`/api/question/${this.datas.slug}`,this.forms)
             .then(response=>{
-               this.cancel()
+               this.cancel(this.forms.body)
             })
             .catch(error=>{
                 console.log(error.response.data)
             })
         },
-        cancel(){
-            EventBus.$emit('cancel')
-        }
+        cancel(question){
+            EventBus.$emit('cancel',question)
+        }    
     }
 }
 </script>

@@ -58,7 +58,6 @@ export default {
          }
         axios.get('/api/categories')
         .then(response=>{
-            console.log(response.data.data)
             this.categorys=response.data.data
         })
     },

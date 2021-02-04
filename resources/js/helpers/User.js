@@ -5,7 +5,7 @@ class User{
         axios.post('/api/auth/login',data)
             .then(response=>{
                 //console.log(response.data)
-                response=this.responseAfterLogin(response)
+                this.responseAfterLogin(response)
           }).catch(error=>{
             console.log(error.data)
         })

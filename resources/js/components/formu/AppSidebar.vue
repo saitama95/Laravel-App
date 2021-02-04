@@ -24,7 +24,6 @@ export default {
     created(){
         axios.get('/api/categories')
         .then(response=>{
-            console.log(response)
            this.categorys=response.data.data
         })
     }

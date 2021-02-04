@@ -17,6 +17,7 @@ class Question extends Model
             $question->slug=Str::slug($question->title);
         });
     }
+    protected $with=['replies'];
     public function getRouteKeyName(){
         return 'slug';
     }
@@ -24,7 +25,7 @@ class Question extends Model
         return $this->belongsTo('App\User');
     }
     public function replies(){
-        return $this->hasMany('App\Reply');
+        return $this->hasMany('App\Reply')->latest();
     }
     public function category(){
         return $this->belongsTo('App\Category');
