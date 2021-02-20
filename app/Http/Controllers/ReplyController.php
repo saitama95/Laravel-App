@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Reply;
 use App\Question;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\ReplyResource;
+use App\Notifications\ReplyNotification;
+use Illuminate\Support\Facades\Notification;
+
 class ReplyController extends Controller
 {
     /**
@@ -32,7 +36,12 @@ class ReplyController extends Controller
     {
         ///question id come form $question automatically inject
        $reply=$question->replies()->create($request->all());
+        if($reply->user_id!==$question->user_id){
+            $user=$question->user;
+            $user->notify(new ReplyNotification($reply));
+        }
        return response(['reply'=>new ReplyResource($reply)]);
+
     }
 
     /**
@@ -67,7 +76,10 @@ class ReplyController extends Controller
      */
     public function destroy(Question $question,Reply $reply)
     {
-         $reply->delete();
+        $id=$question->user->id;
+        DB::table('notifications')->where('notifiable_id',$id)->delete();
+        $reply->delete();
         return response('Deleted');
     }
+   
 }

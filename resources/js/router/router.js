@@ -17,7 +17,7 @@ const routes = [
     { path: '/formu', component: Formu,name:'formu' },
     { path: '/ask', component: Create},
     { path: '/category', component: CreateCategory},
-    { path: '/question/:slug', component: Read,name:'read'},
+    { path: '/question/:slug', component:Read,name:'read'},
 
 ]
 const router = new VueRouter({

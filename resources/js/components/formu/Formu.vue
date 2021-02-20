@@ -22,7 +22,7 @@ export default {
     name:'Formu',
     data(){
         return{
-            questions:{}
+            questions:{},
         }
     },
     components:{
@@ -32,6 +32,7 @@ export default {
     created(){
         axios.get('api/question')
         .then(response=>{
+            console.log(response)
             this.questions=response.data.data
         }).catch(error=>{
             console.log(error.response.data)

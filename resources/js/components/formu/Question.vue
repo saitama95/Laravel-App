@@ -7,7 +7,7 @@
                 {{data.title}}
               </router-link>
             </h3>
-            <p class="grey--text">{{data.user}} said {{data.created_at}}</p>
+            <p class="grey--text">{{data.user | capitalize}} said {{data.created_at}}</p>
           </div>
         </v-card-title>
         <v-card-text>

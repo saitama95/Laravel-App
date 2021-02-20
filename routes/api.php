@@ -31,6 +31,8 @@ Route::group([
 
 });
 
+
+
 Route::resource('question','QuestionController');
 Route::resource('categories', 'CategoryController');
 Route::resource('question/{question}/reply', 'ReplyController');
@@ -38,4 +40,6 @@ Route::resource('question/{question}/reply', 'ReplyController');
 Route::post('like/{reply}','LikeController@likeIt');
 Route::delete('unlike/{reply}','LikeController@deleteLike');
 
+Route::post('notification','NotificationController@index');
 
+Route::post('markasread/{id}','NotificationController@imarkasreadndex');

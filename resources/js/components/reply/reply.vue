@@ -2,8 +2,12 @@
     <div class="mt-4" v-if="data">
         <v-card>
             <v-card-title>
-                <div class="headline">{{data.user}}</div>
+                <div class="headline">{{data.user | capitalize}}</div>
                 <div class="ml-2 time"> said{{data.created_at}}</div>
+                <v-spacer></v-spacer>
+                <like-btn
+                :content=data
+                ></like-btn>
             </v-card-title>
             <v-divider></v-divider>
 
@@ -27,12 +31,14 @@
     </div>
 </template>
 <script>
+import like from '../likes/like'
 import editReply from './editReply'
 export default {
     name:'reply',
     props:['data','index'],
     components:{
-        'edit-reply':editReply
+        'edit-reply':editReply,
+        'like-btn':like
     },
     data(){
         return{

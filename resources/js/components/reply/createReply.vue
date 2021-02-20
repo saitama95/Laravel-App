@@ -1,7 +1,6 @@
 <template>
     <div>
-       
-       <vue-simplemde v-model="body"/>
+     <vue-simplemde v-model="body"/>
         <p>{{msg}}</p>
        <v-btn small color="green"  @click="create">
            <v-icon>done</v-icon>

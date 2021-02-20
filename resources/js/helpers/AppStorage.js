@@ -16,7 +16,7 @@ class AppStorage{
     clear(){
         localStorage.removeItem('token')
         localStorage.removeItem('username')
-        localStorage.removeItem('id')
+        localStorage.removeItem('user_id')
     }
     getToken(){
         return localStorage.getItem('token')

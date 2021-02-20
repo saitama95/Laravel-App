@@ -4,7 +4,6 @@ class User{
     login(data){
         axios.post('/api/auth/login',data)
             .then(response=>{
-                //console.log(response.data)
                 this.responseAfterLogin(response)
           }).catch(error=>{
             console.log(error.data)
@@ -22,7 +21,7 @@ class User{
     }
     //check in browser localstorage contain token is present or not
     hasToken(){
-        const storeToken=AppStorage.getToken();
+        const storeToken=AppStorage.getToken()
         if(storeToken){
             return Token.isValid(storeToken)? true : false
         }
@@ -40,7 +39,7 @@ class User{
         return AppStorage.getUser()
     }
     id(){
-        if(this.loggedIn){
+        if(this.loggedIn()){
             const payload=Token.payload(AppStorage.getToken())
             return payload.sub
         }
@@ -49,7 +48,7 @@ class User{
         return this.id()===id
     }
     admin(){
-        return this.id()==16
+        return this.id()==21
     }
 }
 export default User=new User();

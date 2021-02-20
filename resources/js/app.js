@@ -41,7 +41,13 @@ window.User=User
 window.md=md
 Vue.use(Vuetify)
 window.EventBus=new Vue();
- 
+
+Vue.filter('capitalize', function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
 const vuetify= new Vuetify({})
 
 const app = new Vue({

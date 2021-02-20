@@ -4,9 +4,9 @@
         <v-card-title>
             <div>
                 <div class="headline">
-                    {{datas.title}}
+                    {{datas.title | capitalize}}
                 </div>
-                <p class="grey--text">{{datas.user}} said {{datas.created_at}}</p>
+                <p class="grey--text">{{datas.user | capitalize}} said {{datas.created_at}}</p>
             </div>
             <v-spacer></v-spacer>
            

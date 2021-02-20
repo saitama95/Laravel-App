@@ -10,7 +10,7 @@
 
                 <vue-simplemde v-model="forms.body"/>
 
-                 <v-btn
+                <v-btn
                     type="submit"
                     color="success"
                     >Update

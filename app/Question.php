@@ -16,6 +16,10 @@ class Question extends Model
         static::creating(function($question){
             $question->slug=Str::slug($question->title);
         });
+
+        static::deleting(function ($question) {
+            $question->replies()->delete();
+        });
     }
     protected $with=['replies'];
     public function getRouteKeyName(){

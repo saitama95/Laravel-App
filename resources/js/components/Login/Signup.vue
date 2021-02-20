@@ -83,7 +83,7 @@ export default {
 <style scoped>
 .box{
     margin:auto;
-    width:500px;
+    width:50%;
 }
 .btns{
     margin-top:20px;

@@ -15,10 +15,9 @@
 
 
     <v-btn
-        type="submit"
+      type="submit"
       color="success"
-    >
-     Login
+    >Login
     </v-btn>
 
       <router-link to="/signup">
@@ -57,6 +56,6 @@ export default {
 <style scoped>
   .box{
     margin:auto;
-    width:500px;
+    width:50%;
 }
 </style>
