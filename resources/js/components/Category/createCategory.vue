@@ -46,13 +46,13 @@ export default {
             forms:{
                 name:null
             },
+            temp:null,
             categorys:{},
             store:{},
             editslug:null
         }
     },
      created(){
-
          if(!User.admin()){
              this.$router.push('/formu')
          }
@@ -84,9 +84,13 @@ export default {
             .then(response=>this.categorys.splice(index,1))
         },
         edit(index){
-            this.forms.name=this.categorys[index].name
-            this.editslug=this.categorys[index].slug
-            this.categorys.splice(index,1)
+            if(this.forms.name==null){
+                this.forms.name=this.categorys[index].name
+                this.editslug=this.categorys[index].slug
+                this.categorys.splice(index,1)
+            }
+            
+            
         }
     },
     

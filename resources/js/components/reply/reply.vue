@@ -69,7 +69,6 @@ export default {
         listen(){
             EventBus.$on('cancel_event',(reply)=>{
                 this.editing=false
-                console.log(reply)
                 if(reply!==this.data.reply){
                     this.data.reply=this.beforeedit
                     this.beforeedit=''

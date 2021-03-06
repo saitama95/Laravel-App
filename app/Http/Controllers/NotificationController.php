@@ -11,8 +11,11 @@ use App\Http\Resources\NotificationResource;
 
 class NotificationController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('jwt');//only user login can like and dislike
+    // }
     function index(){
-        //dd(auth()->user()->notifications);
         return [
             'unread'=>NotificationResource::collection(auth()->user()->unReadNotifications),
             'read'=>NotificationResource::collection(auth()->user()->notifications),

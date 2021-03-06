@@ -9,7 +9,7 @@ class Category extends Model
 {
     protected $fillable=['name','slug'];
     //protected $guarded=[];
-    protected static function boot(){
+    protected static function boot(){   
         
         parent::boot();
 

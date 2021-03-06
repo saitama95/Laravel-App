@@ -17,7 +17,7 @@ export default {
     },
     data() {
         return {
-            body:null,
+            body:'',
             empty:'',
             msg:''
         }
@@ -27,9 +27,9 @@ export default {
             if(this.body){
                 axios.post(`/api/question/${this.questionSlug}/reply`,{body:this.body})
                 .then(response=>{
-                this.body=""
                 EventBus.$emit('newReply',response.data.reply)
                 window.scrollTo(0,0)
+                this.body=''
             })
             }
             else{
@@ -41,7 +41,7 @@ export default {
 </script>
 <style scoped>
     p{
-        font-size: 1em;
+        font-size:1em;
         color:red;
     }
 </style>

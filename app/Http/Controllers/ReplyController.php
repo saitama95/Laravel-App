@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reply;
 use App\Question;
 use Illuminate\Http\Request;
+use App\Events\DeleteReplyEvent;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\ReplyResource;
 use App\Notifications\ReplyNotification;
@@ -79,6 +80,7 @@ class ReplyController extends Controller
         $id=$question->user->id;
         DB::table('notifications')->where('notifiable_id',$id)->delete();
         $reply->delete();
+        broadcast(new DeleteReplyEvent($reply->id))->toOthers();
         return response('Deleted');
     }
    
